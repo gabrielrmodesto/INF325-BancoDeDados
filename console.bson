@@ -1,0 +1,22 @@
+//question 1
+db.restaurants.distinct("name")
+db.restaurants.distinct("cuisine")
+
+// question 2
+db.restaurants.find({}, {_id: 0, name: 1, cuisine: 1}).limit(5)
+
+//question 3
+db.restaurants.find({borough : "Bronx"}).limit(5)
+
+//question 4
+db.restaurants.find({name: "Kosher Island"})
+db.restaurants.updateOne({name: "Kosher Island"}, {$set : {cuisine : "Sea Food"}})
+db.restaurants.find({name: "Kosher Island"})
+
+//question 5
+db.restaurants.find({},{"zipcode": "10134"})
+db.restaurants.deleteMany({"zipcode": "10134"})
+
+//question 6
+db.restaurants.find({name: "Riviera Caterer"})
+db.restaurants.updateOne({ "_id" : ObjectId("6115ab7847027639cc4d6d44")},{$set:{"status": "demolido"}})
